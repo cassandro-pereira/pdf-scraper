@@ -6,22 +6,20 @@ import pdfkit
 f = open('test.html', 'w')
 
 html = """
-<html>
-   <head>
-      <title>Hello world!</title>
-      <link rel='stylesheet' href='assets/style.css'>
-   </head>
-   <body>
-      <h1>Hello from File!</h1>
-      <a href='https://ironpdf.com/python/'><img src='assets/logo.png' /></a>
-   </body>
-</html>
+  <html>
+      <head>
+        <meta name="pdfkit-page-size" content="Legal"/>
+        <meta name="pdfkit-orientation" content="Landscape"/>
+      </head>
+      Hello World!
+      </html>
 """
 f.write(html)
 f.close
 
+pdfkit.from_string(html, 'out.pdf')
 pdfkit.from_file('test.html', 'test.pdf')
-pdfkit.from_url('http://google.com', 'example.pdf')
+pdfkit.from_url('http://ig.com.br', 'example.pdf')
 
 pdf = PDFQuery('example.pdf')
 pdf.load()
