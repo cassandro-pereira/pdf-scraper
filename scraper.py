@@ -1,6 +1,7 @@
 from pdfquery import PDFQuery
 import os
 import pdfkit
+import sys
 
 #Use a HTML data to convert later into a pdf file
 f = open('test.html', 'w')
@@ -19,7 +20,10 @@ f.close
 
 pdfkit.from_string(html, 'out.pdf')
 pdfkit.from_file('test.html', 'test.pdf')
-pdfkit.from_url('http://ig.com.br', 'example.pdf')
+
+print('Enter the url create a pdf and look for text elements such as: http://ig.com.br: ', end='')
+test_url = input()
+pdfkit.from_url(test_url, 'example.pdf')
 
 pdf = PDFQuery('example.pdf')
 pdf.load()
