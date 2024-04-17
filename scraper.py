@@ -11,14 +11,13 @@ html = """
         <meta name="pdfkit-orientation" content="Landscape"/>
       </head>
       Hello World!
-      </html>
+  </html> 
 """
 
 f.write(html)
 f.close
 
-pdfkit.from_string(html, 'out.pdf')
-pdfkit.from_file('test.html', 'test.pdf')
+pdfkit.from_url('test.html', 'test.pdf')
 
 pdfg = PDFQuery('test.pdf')
 pdfg.load()
